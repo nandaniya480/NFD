@@ -42,24 +42,17 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
 
-{{-- <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}"> --}}
-<link rel="stylesheet" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/bs5-old/app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css">
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
 
 
 <link rel="stylesheet" href="{{ asset('assets/css/parsley.css') }}">
 
-    <!-- Page CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/cards-advance.css') }}" />
-    <!-- Helpers -->
+
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/tables-datatables-basic.js') }}"></script> --}}
-
-    <script src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/bs5-old/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
-    <script src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/bs5-old/app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
-    <script src="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/bs5-old/app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
-
+    
     <link rel="stylesheet" href="../../assets/vendor/css/pages/page-auth.css">
     <script src="{{ asset('assets/vendor/js/template-customizer.js') }}"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>

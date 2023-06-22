@@ -13,10 +13,6 @@ class ProductRepository implements ProductRepositoryInterface
         $data = Product::all();
         return DataTables::of($data)
             ->addIndexColumn()
-            // ->addColumn('select', function ($row) {
-            //     // return '<input type="checkbox" class="bulk-select-checkbox" value="' . $row->id . '">';
-            //     return '';
-            // })
 
             ->editColumn('action', function ($row) {
                 $btn =  '<div class="v-button"><a href="' . route('product.show', $row->id) . '" class="btn"><i class="menu-icon tf-icons ti ti-solid ti-eye"></i></a>';
@@ -24,7 +20,6 @@ class ProductRepository implements ProductRepositoryInterface
                 $btn .= '<button class="btn deleteProduct" data-id="' . $row->id . '" data-action="' . route('product.destroy', $row->id) . '" ><i class="menu-icon tf-icons ti ti-solid ti-trash"></i></button></div>';
                 return $btn;
             })
-            // ->rawColumns(['select', 'action'])
             ->rawColumns(['action'])
             ->make(true);
     }
@@ -51,5 +46,10 @@ class ProductRepository implements ProductRepositoryInterface
     public function find($id)
     {
         return Product::find($id);
+    }
+
+    public function bulkAction($data)
+    {
+        Product::whereIn('id', $data['ids'])->delete();
     }
 }

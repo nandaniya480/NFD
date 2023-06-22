@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\admin\auth\AuthController;
 use App\Http\Controllers\admin\auth\ForgotPasswordController;
-use App\Http\Controllers\admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,7 +18,10 @@ Route::post('reset-password', [ForgotPasswordController::class, 'resetPassword']
 
 Route::middleware(['auth:web', 'verified'])->group(function ($route) {
     $route->group(['namespace' => 'App\Http\Controllers\admin'], function ($adminRoute) {
-        $adminRoute->get('dashboard', [DashboardController::class, 'home'])->name('dashboard');
+        $adminRoute->get('dashboard', 'DashboardController@home')->name('dashboard');
+
+        $adminRoute->post('product.bulk-action', 'ProductController@bulkAction')->name('product.bulk-action');
+
         $adminRoute->resource('roles', RoleController::class);
         $adminRoute->resource('users', UserController::class);
         $adminRoute->resource('product', ProductController::class);

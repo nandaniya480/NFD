@@ -13,4 +13,6 @@ interface ProductRepositoryInterface
     public function delete($id);
 
     public function find($id);
+
+    public function bulkAction($data);
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Traits\WebResponseTrait;
 use App\Interfaces\ProductRepositoryInterface;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -97,6 +98,24 @@ class ProductController extends Controller
                 ["attribute" => "User"]
             ));
         } catch (\Exception $e) {
+            return $this->sendResponse(false, [], $e->getMessage());
+        }
+    }
+
+    public function bulkAction(Request $request)
+    {
+        try {
+            $this->productRepository->bulkAction($request);
+
+            // $msg = isset($request->id) && $request->id != null ? 'messages.custom.update_messages' : 'messages.custom.create_messages';
+            $msg = 'messages.custom.deleted';
+
+            return $this->sendResponse(true, ['data' => []], trans(
+                $msg,
+                ["attribute" => "Product"]
+            ));
+        } catch (\Exception $e) {
+            return $e;
             return $this->sendResponse(false, [], $e->getMessage());
         }
     }
